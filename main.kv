@@ -1,0 +1,49 @@
+#:kivy 1.11.1
+# main.kv option #1 - Testing KivyMD unhappy
+
+<RootScreen>
+    id: root
+    name: "root"
+    #screen_manager: screen_manager
+    BoxLayout:
+        orientation: "vertical"
+        # TOOL BAR
+        MDTopAppBar:
+            id: toolbar
+            name: "toolbar"
+            title: "StudyBud"
+            left_action_items: [['menu', lambda x: nav_drawer.set_state("open")]]
+            elevation: 10
+            md_bg_color: app.theme_cls.primary_color
+        #CENTER
+        Widget:
+            ScreenManager:
+                id: screen_manager
+                name: "screen_manager"
+        # BOTTOM NAV BAR
+        MDBottomNavigation:
+            id: bottom_nav
+            name: "bottom_nav"
+            title: "bottom_nav_text"
+            md_bg_color: 0, 1, 0, 1
+            MDTopAppBar:
+                title: "Title"
+                icon: "plus"
+                type: "bottom"
+                left_action_items: [["menu", lambda x: x]]
+                icon_color: 0, 1, 0, 1
+<Screen_Manager>
+    id: screen_manager
+    name: "screen_manager"
+    Home_Screen:
+    LogIn_Screen:
+    SignUp_Screen:
+    Tools_Screen:
+    Msg_Notif_Screen:
+    Grades_Stats_Screen:
+    Cal_ToDo_Screen:
+    Collections_Screen:
+    Game_Screen:
+    Setting_Screen:
+    Trophies_Screen:
+    File_Manager_Screen:
