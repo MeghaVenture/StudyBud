@@ -1,0 +1,397 @@
+#orginal main.kv thought lost 
+
+# video had no root and Drawer than main - changed to copy KivyMD docs
+Root:
+    NavigationLayout:
+        # MAIN PAGE (BoxLayOut containing TopBar-Screen Manager-Bottom Bar)
+	    BoxLayOut:
+		    name: "main_container"
+		    id: main_container
+		    orientation: 'vertical'
+            ## TOP TOOLBAR
+		    MDToolBar:          # documentation references "MDTopAppBar"
+			    name: "top_toolbar"
+			    id: top_toolbar
+			    title: "StudyBud"
+			    md_bg_color: app.theme_cls.primary_color
+			    left_action_items: [
+			        # MENU BUTTON (3 horiz. lines)
+				    ["menu"; Lambda x: app.callback()] #todo make sure I have a "callback" function
+				    ]
+			    right_action_items: [
+			        # SEARCH BUTTON
+				    ["magnify"; Lambda x: app.callback()] # todo add arguments
+				    # ACCOUNT BUTTON
+				    ["account-circle"; Lambda x: app.callback()] # todo add arguments
+				    ]
+			    elevation: 10
+            ## SCREEN MANAGER
+		    ScreenManager:
+			    name: "screen_manager"
+			    id: screen_manager
+                ### HOME SCREEN
+			    MDscreen:
+				    name: "home_screen"
+				    id: home_screen
+				    MDLabel:
+					    text: "Home Screen"
+				    ScrollView:
+					    BoxLayOut:
+						    orientation: "vertical"
+						    label:"Upcoming"
+						    BoxLayOut:
+						        # todo horizontal list of "upcoming"
+						    label: "Collections"
+						    BoxLayOut:
+						    	# todo horizontal list of users collections
+						    label: "Courses"
+						    BoxLayOut:
+						    	# todo horizontal list of joined courses
+						    label: "Games"
+						    BoxLayOut:
+							    # todo horizontal list of games
+						    label: "Tools"
+						    BoxLayOut:
+							    # todo horizontal list of tools
+                ### CAL & TO-DO
+			    MDscreen:
+				    name: "calendar_and_to_do_screen"
+				    id: calendar_and_to_do_screen
+                    # todo WRITE SCREEN HERE
+				    MDLabel:
+					    text: "Calendar & To-do Screen"
+                ### TROPHIES
+			    MDscreen:
+				    name: "trophies_screen"
+				    id: trophies_screen
+                    # todo WRITE SCREEN HERE
+				    MDLabel:
+					    text: "Trophies Screen"
+                ### MESSANGES & NOTIFICATIONS
+			    MDscreen:
+				    name: "messages_and_notifications_screen"
+				    id: messages_and_notifications_screen
+                    # todo WRITE SCREEN HERE
+				    MDLabel:
+					    text: "Messages & Notifications Screen"
+                ### GRADES & STATS
+			    MDscreen:
+				    name: "gradeook_and_stats_screen"
+				    id: gradeook_and_stats_screen
+                    # todo WRITE SCREEN HERE
+				    MDLabel:
+					    text: " Gradebook & Stats Screen"
+                ### FILE MANAGER
+			    MDscreen:
+				    name: "file_manager_screen"
+				    id: file_manager_screen
+                    # todo WRITE SCREEN HERE
+				    MDLabel:
+					    text: "File Manager Screen"
+                ### COLLECTIONS
+			    MDscreen:
+				    name: "collections_and_courses_screen"
+				    id: collections_and_courses_screen
+                    # todo WRITE SCREEN HERE
+				    MDLabel:
+					    text: "Collections & Courses Screen"
+                ### GAMES
+			    MDscreen:
+				    name: "games_screen"
+				    id: games_screen
+                    # todo WRITE SCREEN HERE
+				    MDLabel:
+					    text: "Games Screen"
+                ### TOOLS
+			    MDscreen:
+				    name: "tools_screen"
+				    id: tools_screen
+                    # todo WRITE SCREEN HERE
+				    MDLabel:
+                        text: "Tools Screen"
+                ### SETTINGS
+			    MDscreen:
+				    name: "settings_screen"
+				    id: settings_screen
+                    # todo WRITE SCREEN HERE
+				    MDLabel:
+					    text: "Settings Screen"
+                ### SEARCH
+			    MDscreen:
+				    name: "search_screen"
+				    id: search_screen
+                    # todo WRITE SCREEN HERE
+				    MDLabel:
+					    text: "Search Screen"
+                ### LOG IN
+			    MDscreen:
+				    name: "login_screen"
+				    id: login_screen
+				    MDCard:
+					    name: "login_card"
+					    id: login_card
+					    size_hint: None, None
+					    size: 300, 400
+					    pos_hint: {"center_x": 0.5, "center_y": 0.5}
+					    elevation: 10
+					    padding: 25
+					    spacing: 25
+					    orientation: 'vertical'
+					    MDLabel:
+						    name: "login_label"
+						    id: login_label
+						    text: "Login"
+						    font_size: 40
+						    halign: 'center'
+						    size_hint_y: None
+						    height: self.texture_size[1]
+						    padding_y: 15
+					    MDTextFieldRound:
+						    name: "email_textfield"
+						    id: email_textfield
+						    hint_text: "Email"
+						    size_hint_x: None
+						    width: 200
+						    font_size: 18
+						    pos_hint: {"center_x": 0.5}
+					    MDTextFieldRound:
+						    name: "password_textfield"
+						    id: password_textfield
+						    hint_text: "Password"
+						    icon_right: "eye-off"
+						    size_hint_x: None
+						    width: 200
+						    font_size: 18
+						    pos_hint: {"center_x": 0.5}
+						    passward: True
+					    MDRoundFlatButton:
+						    name: "log_in_button"
+						    id: log_in_button
+						    text: "Log In"
+						    font_size: 12
+						    pos_hint {"center_x": 0.5}
+					    MDRoundFlatButton:
+						    name: "sign_up_button"
+						    id: sign_up_button
+						    text: "Sign Up"
+						    font_size: 12
+						    pos_hint {"center_x": 0.5}
+                ### SIGN UP
+			    MDscreen:
+				    name: "signup_screen"
+				    id: signup_screen
+				    MDCard:
+					    name: "signup_card"
+					    id: signup_card
+					    size_hint: None, None
+					    size: 300, 400
+					    pos_hint: {"center_x": 0.5, "center_y": 0.5}
+					    elevation: 10
+					    padding: 25
+					    spacing: 25
+					    orientation: 'vertical'
+					    MDLabel:
+						    name: "signup_label"
+						    id: signup_label
+						    text: "Signup"
+						    font_size: 40
+						    halign: 'center'
+						    size_hint_y: None
+						    height: self.texture_size[1]
+						    padding_y: 15
+					    MDTextFieldRound:
+						    name: "email_textfield"
+						    id: email_textfield
+						    hint_text: "Email"
+						    size_hint_x: None
+						    width: 200
+						    font_size: 18
+						    pos_hint: {"center_x": 0.5}
+					    MDTextFieldRound:
+						    name: "confirm_email_textfield"
+						    id: confirm_email_textfield
+						    hint_text: "Confirm Email"
+						    size_hint_x: None
+						    width: 200
+						    font_size: 18
+						    pos_hint: {"center_x": 0.5}
+					    MDTextFieldRound:
+						    name: "password_textfield"
+						    id: password_textfield
+						    hint_text: "Password"
+						    icon_right: "eye-off"
+						    size_hint_x: None
+						    width: 200
+						    font_size: 18
+						    pos_hint: {"center_x": 0.5}
+						    password: True
+					    MDTextFieldRound:
+						    name: "confirm_password_textfield"
+						    id: confirm_password_textfield
+						    hint_text: "Confirm Password"
+						    icon_right: "eye-off"
+						    size_hint_x: None
+						    width: 200
+						    font_size: 18
+						    pos_hint: {"center_x": 0.5}
+						    password: True
+					    MDRoundFlatButton:
+						    name: "signup_button"
+						    id: signup_button
+						    text: "Signup"
+						    font_size: 12
+						    pos_hint {"center_x": 0.5}
+					    MDRoundFlatButton:
+						    name: "guest_button"
+						    id: guest_button
+						    text: "Continue as Guest"
+						    font_size: 12
+						    pos_hint {"center_x": 0.5}
+                ### FORGOT PASSWORD
+			    MDscreen:
+				    name: "forgot_password_screen"
+				    id: forgot_password_screen
+                    # todo WRITE SCREEN HERE
+				    MDLabel:
+					    text: "Forgot Password Screen"
+                ### EDIT PROFILE
+			    MDscreen:
+				    name: "edit_profile_screen"
+				    id: edit_profile_screen
+                    # todo WRITE SCREEN HERE
+				    MDLabel:
+					    text: "Edit Profile Screen"
+                ### VIEW PROFILE
+			    MDscreen:
+				    name: "view_profile_screen"
+				    id: view_profile_screen
+                    # todo  WRITE SCREEN HERE
+				    MDLabel:
+					    text: "View Profile Screen"
+            ## BOTTOM BAR
+		    MDBottomAppBar:
+			    MDToolBar:
+				    name: "bottom_toolbar"
+				    id: bottom_toolbar
+				    left_action_items: [
+					    ["#grade_book_and_stats"; Lambda x: screen_manager.current = "gradeook_and_stats_screen"]
+					    ["#trophies"; Lambda x: screen_manager.current = "trophies_screen"]
+					    ]
+				    right_action_items: [
+					    ["#calendar_and_todo"; Lambda x: screen_manager.current = "calendar_and_to_do_screen"]
+					    ["#message"; Lambda x: screen_manager.current = "messages_and_notifications_screen"]
+					    ]
+				    type: "bottom"
+				    icon: "home"
+				    on_action_button: screen_manager.current = "home_screen"
+    # DRAWER (auto-scroll list)
+    MDNavigationDrawer:
+	    name: "nav_drawer"
+	    id: nav_drawer
+	    drawer_logo: "# todo add image
+        ## SCREEN BUTONS
+	    NavigationDrawerSubheader:
+		    name: "screens_nav_header"
+			id: screens_nav_header
+			text: "Screens"
+        ### HOME NAV BUTTON
+		NavigationDrawerIconButton:
+			name: "home_nav_button"
+			id: home_nav_button
+			text: "Home"
+			on_release:
+				screen_manager.current = "home_screen"
+				app.toast_pop_up("Selected Home screen")
+        ### CAL & TO-DO NAV BUTTON
+		NavigationDrawerIconButton:
+			name: "calendar_and_to_do_nav_button"
+			id: calendar_and_to_do_nav_button
+			text: "Calendar & To-do"
+			on_release:
+				screen_manager.current = "calendar_and_to_do_screen"
+				app.toast_pop_up("Selected Calendar & To-do screen")
+        ### TROPHIES NAV BUTTON
+		NavigationDrawerIconButton:
+			name: "trophies_nav_button"
+			id: trophies_nav_button
+			text: "Trophies"
+			on_release:
+				screen_manager.current = "trophies_screen"
+				app.toast_pop_up("Selected Trophies screen")
+        ### MESSAGES & NOTIFICATIONS NAV BUTTON
+		NavigationDrawerIconButton:
+			name: "messages_and_notifications_nav_button"
+			id: messages_and_notifications_nav_button
+			text: "Messages and Notications"
+			on_release:
+				screen_manager.current = "messages_and_notifications_screen"
+				app.toast_pop_up("Selected Messages & notifications screen")
+        ### GRADES & STATS NAV BUTTON
+		NavigationDrawerIconButton:
+			name: "gradebook_and_stats_nav_button"
+			id: gradebook_and_stats_nav_button
+			text: "Gradebook & Stats"
+			on_release:
+				screen_manager.current = "gradeook_and_stats_screen"
+				app.toast_pop_up("Selected Gradbook & Stats screen")
+        ### FILE MANAGER NAV BUTTON
+		NavigationDrawerIconButton:
+			name: "file_manager_nav_buton"
+			id: file_manager_nav_buton
+			text: "File Manager"
+			on_release:
+				screen_manager.current = "file_manager_screen"
+				app.toast_pop_up("Selected File Manager screen")
+        ### COLLECTIONS NAV BUTTON
+		NavigationDrawerIconButton:
+			name: "collections_and_course_nav_button"
+			id: collections_and_course_nav_button
+			text: "Collections & Courses"
+			on_release:
+				screen_manager.current = "collections_and_courses_screen"
+				app.toast_pop_up("Selected Collections & Courses screen")
+        ### TOOLS NAV BUTTON
+		NavigationDrawerIconButton:
+			name: "tools_nav_button"
+			id: tools_nav_button
+			text: "Tools"
+			on_release:
+				screen_manager.current = "tools_screen"
+				app.toast_pop_up("Selected Tools screen")
+        ### SETTINGS NAV BUTTON
+		NavigationDrawerIconButton:
+			name: "settings_nav_button"
+			id: settings_nav_button
+			text: "Settings"
+			on_release:
+				screen_manager.current = "settings_screen"
+				app.toast_pop_up("Selected Settings screen")
+        ## ACCOUNT BUTTONS
+		NavigationDrawerSubheader:
+			name: "account_nav_header"
+			id: account_nav_header
+			text: "Account"
+        ### SWITCH ACCOUNT NAV BUTTON
+		NavigationDrawerIconButton:
+			name: "switch_account_nav_button"
+			id: switch_account_nav_button
+			text: "Switch Account"
+			on_release:
+				app.toast_pop_up("Selected Switch Account")
+            # todo ADD function HERE
+        ### VIEW PROFILE NAV BUTTON
+		NavigationDrawerIconButton:
+			name: "view_profile_nav_button"
+			id: view_profile_nav_button
+			text: "View Profile"
+			on_release:
+				app.toast_pop_up("Selected View Profile")
+            # todo ADD function HERE
+        ### SIGN OUT NAV BUTTON
+		NavigationDrawerIconButton:
+			name: "sign_out_nav_button"
+			id: sign_out_nav_button
+			text: "Sign Out"
+			on_release:
+				app.toast_pop_up("Selected Sign Out")
+            # todo ADD function HERE
