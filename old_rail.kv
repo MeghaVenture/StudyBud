@@ -1,0 +1,153 @@
+#:kivy 1.11.1
+# old code - rail.kv
+
+MDBoxLayout:
+    name: "main_container"
+    id: main_container
+    orientation: 'verticial'
+
+    MDToolBar:
+        name: "top_toolbar"
+        id: top_toolbar
+        title: "StudyBud"
+        md_bg_color: app.theme_cls.primary_color
+        left_action_items: [
+            ["menu"; Lambda x: root.toggle_nav_drawer()]
+            ]
+        elevation: 8
+
+    MDBoxLayout:
+        MDNavigationRail:
+            name: "nav_rail"
+            id: nav_rail
+
+		MDNavigationRailItem:
+			name: "home_nav_button"
+			id: home_nav_button
+			icon: 'home'
+			text: "Home"
+			on_release:
+                root.nav_drawer.set_state("close")
+                root.screen_manager.current = "home_screen"
+				app.toast_pop_up("Selected Home screen")
+
+		MDNavigationRailItem:
+			name: "calendar_and_to_do_nav_button"
+			id: calendar_and_to_do_nav_button
+			icon: "calendar-note"
+			text: "Calendar & To-do"
+			on_release:
+                root.nav_drawer.set_state("close")
+                root.screen_manager.current = "calendar_and_to_do_nav_button"
+				app.toast_pop_up("Selected Calendar And To-do screen")
+
+		MDNavigationRailItem:
+			name: "trophies_nav_button"
+			id: trophies_nav_button
+			icon: "ticket-star"
+			text: "Trophies"
+			on_release:
+                root.nav_drawer.set_state("close")
+                root.screen_manager.current = "trophies_nav_button"
+				app.toast_pop_up("Selected Trophies screen")
+
+		MDNavigationRailItem:
+			name: "messages_and_notifications_nav_button"
+			id: messages_and_notifications_nav_button
+			icon: "inbox"
+			text: "Messages and Notifications"
+			on_release:
+                root.nav_drawer.set_state("close")
+                root.screen_manager.current = "messages_and_notifications_nav_button"
+				app.toast_pop_up("Selected Messages & notifications screen")
+
+		MDNavigationRailItem:
+			name: "gradebook_and_stats_nav_button"
+			id: gradebook_and_stats_nav_button
+			icon: "book"
+			text: "Gradebook & Stats"
+			on_release:
+			    root.nav_drawer.set_state("close")
+				root.screen_manager.current = "gradeook_and_stats_screen"
+				app.toast_pop_up("Selected Gradbook & Stats screen")
+
+		MDNavigationRailItem:
+			name: "file_manager_nav_buton"
+			id: file_manager_nav_buton
+			icon: "file-document-multiple"
+			text: "File Manager"
+			on_release:
+			    root.nav_drawer.set_state("close")
+				root.screen_manager.current = "file_manager_screen"
+				app.toast_pop_up("Selected File Manager screen")
+
+		MDNavigationRailItem:
+			name: "collections_and_course_nav_button"
+			id: collections_and_course_nav_button
+			icon: 'card-multiple'
+			text: "Collections & Courses"
+			on_release:
+			    root.nav_drawer.set_state("close")
+				root.screen_manager.current = "collections_and_courses_screen"
+				app.toast_pop_up("Selected Collections & Courses screen")
+
+		MDNavigationRailItem:
+			name: "tools_nav_button"
+			id: tools_nav_button
+			icon: "wrench"
+			text: "Tools"
+			on_release:
+			    root.nav_drawer.set_state("close")
+				root.screen_manager.current = "tools_screen"
+				app.toast_pop_up("Selected Tools screen")
+
+		MDNavigationRailItem:
+			name: "settings_nav_button"
+			id: settings_nav_button
+			icon: "settings"
+			text: "Settings"
+			on_release:
+			    root.nav_drawer.set_state("close")
+				root.screen_manager.current = "settings_screen"
+				app.toast_pop_up("Selected Settings screen")
+
+#		MDNavigationRailItem:
+#			name: "account_nav_header"
+#		MDNavigationRailItem:
+#			name: "switch_account_nav_button"
+#		MDNavigationRailItem:
+#			name: "view_profile_nav_button"
+#		MDNavigationRailItem:
+#			name: "sign_out_nav_button"
+    ScreenManager:
+        name: "screen_manager"
+        id: screen_manager
+        #### TITLE / LOAD SCREEN
+        LogIn_Screen
+        SignUp_Screen
+        Home_Screen
+        Tools_Screen
+        Messages_And_Notification_Screen
+        Grades_And_Stats_Screen
+        Cal_And_ToDo_Screen
+        File_Manager_Screen
+        Collections_Screen
+        Game_Screen
+        Setting_Screen
+        Trophies_Screen
+    ## BOTTOM BAR
+	MDBottomAppBar:
+        MDToolBar:
+            name: "bottom_toolbar"
+            id: bottom_toolbar
+            #left_action_items: [
+            #	["#grade_book_and_stats"; Lambda x: screen_manager.current = "gradeook_and_stats_screen"]
+            #	["#trophies"; Lambda x: screen_manager.current = "trophies_screen"]
+            #	]
+            #right_action_items: [
+            #	["#calendar_and_todo"; Lambda x: screen_manager.current = "calendar_and_to_do_screen"]
+            #	["#message"; Lambda x: screen_manager.current = "messages_and_notifications_screen"]
+            #	]
+            #type: "bottom"
+            #icon: "home"
+            #on_action_button: screen_manager.current = "home_screen"
