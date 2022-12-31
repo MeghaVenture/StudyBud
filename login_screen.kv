@@ -1,0 +1,57 @@
+#:kivy 1.11.1
+# login_screen.kv
+
+<Login_Screen>:
+	name: "login_screen"
+	id: login_screen
+	MDCard:
+		name: "login_card"
+		id: login_card
+	    size_hint: None, None
+		size: 300, 400
+		pos_hint: {"center_x": 0.5, "center_y": 0.5}
+		elevation: 10
+		padding: 25
+		spacing: 25
+		orientation: 'vertical'
+		MDLabel:
+			name: "login_label"
+			id: login_label
+			text: "Log in"
+			font_size: 40
+			halign: 'center'
+			size_hint_y: None
+			height: self.texture_size[1]
+			padding_y: 15
+		MDTextFieldRound:
+			name: "email_textfield"
+			id: email_textfield
+			hint_text: "Email"
+			multiline: False
+			size_hint_x: None
+			width: 200
+			font_size: 18
+			pos_hint: {"center_x": 0.5}
+		MDTextFieldRound:
+			name: "password_textfield"
+			id: password_textfield
+			hint_text: "Password"
+			#icon_left: 'key-variant'
+			icon_right: "eye-off"
+			size_hint_x: None
+			width: 200
+			font_size: 18
+			pos_hint: {"center_x": 0.5}
+			password: True
+		MDRoundFlatButton:
+			name: "login_button"
+			id: login_button
+			text: "Log In"
+			font_size: 12
+			pos_hint: {"center_x": 0.5}
+		MDRoundFlatButton:
+			name: "signup_button"
+			id: signup_button
+			text: "Sign Up"
+			font_size: 12
+			pos_hint: {"center_x": 0.5}
