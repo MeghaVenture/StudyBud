@@ -1,0 +1,180 @@
+#: kivy 1.1.1
+# main.kv option 3 
+
+# NO REPEATED MENU
+# NO ICONS
+
+#'''
+#CURRENT ISSUE:
+#1) menu buttons still dont work but aren't breaking the app anymore
+#2) Tool Bar only on log in
+#'''
+
+## IGNORE starting with screen manager (like below)
+#Screen_Manager:
+    #Home_Screen:
+
+Screen:
+    MDToolbar:
+        name: "toolbar"
+        id: toolbar
+        #md_bg_color: .2,.2,.2,1
+        #specific_text_color: 1,1,1,1 #default white = 1,1,1,1
+        pos_hint: {"top": 1}
+        elevation: 10
+        title: "StudyBud"
+        left_action_items: [["menu", lambda x: nav_drawer.set_state("open")]]
+    MDNavigationLayout:
+        x: toolbar.height
+        Screen_Manager:
+            name: "screen_manager"
+            id: screen_manager
+            #### TITLE / LOAD SCREEN
+            LogIn_Screen:
+                name: "login_screen"
+                id: login_screen
+            SignUp_Screen
+                name: "signup_screen"
+                id: signup_screen
+            Home_Screen
+                name: "home_screen"
+                id: home_screen
+            Tools_Screen
+            Msg_Notif_Screen
+            Grades_Stats_Screen
+            Cal_ToDo_Screen
+            File_Manager_Screen
+            Collections_Screen
+            Game_Screen
+            Setting_Screen
+            Trophies_Screen
+        MDNavigationDrawer:
+            name: "nav_drawer"
+            id: nav_drawer
+            BoxLayout:
+                screen_manager: screen_manager
+                nav_drawer: nav_drawer
+
+                orientation: 'vertical'
+                padding: '8dp'
+                spacing: '8dp'
+
+                ## MENU HEADER
+                AnchorLayout:
+                    anchor_x: 'left'
+                    size_hint_y: None
+            #        height: avatar.height
+
+        #        Image:
+        #            name: "avatar"
+        #            id: avatar
+        #            size_hint: None, None
+        #            size: '56dp', '56dp'
+        ##          source: '#image.png'
+
+                MDLabel:
+                    text: "StudyBud"
+                    font_style: "Button"
+                    size_hint_y: None
+                    height: self.texture_size[1]
+
+                MDLabel:
+                    text: "USERNAME"
+                    font_style: 'Button'
+                    size_hint_y: None
+                    height: self.texture_size[1]
+
+                MDLabel:
+                    text: "E-MAIL"
+                    font_style: 'Caption'
+                    size_hint_y: None
+                    height: self.texture_size[1]
+
+                ScrollView:
+                    # BUTTONS ON NAVIGATION BAR
+                    MDList:
+                        OneLineIconListItem:
+                            name: "cal_todo_screen_nav_button"
+                            id: cal_todo_screen_nav_button
+                            text: "Calendar & To-do Screen"
+                            icon: 'calendar-note' #'calendar-check'
+                            on_touch_down:
+                                #app.on_click("Cal_ToDo_Screen")
+                        OneLineIconListItem:
+                            name: "collections_screen_nav_button"
+                            id: "collections_screen_nav_button"
+                            text: "Collections & Courses Screen"
+                            icon: 'collection-image' #'cards' or 'card-multiple'
+                            on_release:
+                                #app.root.current = "Collections_Screen"
+                        OneLineIconListItem:
+                            name: "file_manager_screen_nav_button"
+                            id: file_manager_screen_nav_button
+                            text: "File Manager Screen"
+                            icon: 'file-plus' #'file-document-multiple' or 'file-cabinet'
+                            on_release:
+                                #app.root.current = "File_Manager_Screen"
+                        OneLineIconListItem:
+                            name: "game_screen"
+                            id: game_screen
+                            text: "Game Screen"
+                            icon: 'play-circle' #'gamepad-square-outline' or 'seesaw'
+                            on_release:
+                                #app.root.current = "Game_Screen"
+                        OneLineIconListItem:
+                            name: "grades_stats_screen_nav_button"
+                            id: grades_stats_screen_nav_button
+                            text: "Grades & Stats Screen"
+                            icon: 'book' #'graduation-cap' or 'book-open-page-variant' or 'finace' or 'notebook-outline' or 'chart-box'
+                            on_release:
+                                #app.root.current = "Grades_Stats_Screen"
+                        OneLineIconListItem:
+                            name: "home_screen_nav_button"
+                            id: home_screen_nav_button
+                            text: "Home Screen"
+                            icon: 'home'
+                            on_release:
+                                app.root.current = "home_screen"
+                        OneLineIconListItem:
+                            name: "login_screen_nav_button"
+                            id: login_screen_nav_button
+                            text: "LogIn Screen"
+                            icon: 'lock-open'
+                            on_release:
+                                #app.root.current = "LogIn_Screen"
+                        OneLineIconListItem:
+                            name: "msg_notif_screen_nav_button"
+                            id: msg_notif_screen_nav_button
+                            text: "Messages & Notification Screen"
+                            icon: 'inbox' #'alert-triangle' or 'message'
+                            on_release:
+                                #app.root.current = "Msg_Notif_Screen"
+                        OneLineIconListItem:
+                            name: "setting_screen_nav_button"
+                            id: setting_screen_nav_button
+                            text: "Setting Screen"
+                            icon: 'settings' #'tune' or 'cogs'
+                            on_release:
+                                #app.root.current = "Setting_Screen"
+                        OneLineIconListItem:
+                            name: "signup_screen_nav_button"
+                            id: signup_screen_nav_button
+                            text: "SignUp Screen"
+                            icon: 'account-box'
+                            on_release:
+                                #app.root.current = "SignUp_Screen"
+                        OneLineIconListItem:
+                            name: "tools_screen_nav_button"
+                            id: tools_screen_nav_button
+                            text: "Tools Screen"
+                            icon: 'wrench' #'hammer-wrench' or 'toolbox' or 'auto-fix'
+                            on_release:
+                                #app.root.current = "Tools_Screen"
+                        OneLineIconListItem:
+                            name: "trophies_screen_nav_button"
+                            id: trophies_screen_nav_button
+                            text: "Trophies Screen"
+                            icon: 'ticket-star' #'trophy' or 'star-circle' or 'playlist-star'
+                            on_release:
+                                #app.root.current = "Trophies_Screen"
+    MDBottomNavigation:
