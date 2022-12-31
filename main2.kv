@@ -1,0 +1,124 @@
+#:kivy 1.11.1
+# main.kv - Option 2
+
+<RootScreen>:
+    orientation: "vertical"
+    #TOOLBAR (on root)
+    MDToolbar:
+        id: toolbar
+        name: "toolbar"
+        title: "StudyBud"
+        md_bg_color: app.theme_cls.primary_color
+        left_action_items: [['menu', lambda x: app.root.toggle_nav_drawer()]]
+
+    #MENU
+    MDNavigationDrawer:
+        id: nav_drawer
+        name: "nav_drawer"
+        # MENU HEADER
+        anchorLayout:
+            anchor_x: 'left'
+            size_hint_y: None
+            MDLabel:
+                text: "StudyBud"
+                font_style: "Button"
+                size_hint_y: None
+                height: self.texture_size[1]
+            MDLabel:
+                text: "USERNAME"
+                font_style: 'Button'
+                size_hint_y: None
+                height: self.texture_size[1]
+            MDLabel:
+                text: "E-MAIL"
+                font_style: 'Caption'
+                size_hint_y: None
+                height: self.texture_size[1]
+        ScrollView:
+            # BUTTONS ON NAVIGATION BAR
+            MDList:
+                NavigationDrawerIconButton:
+                    name: "cal_todo_screen_nav_button"
+                    id: cal_todo_screen_nav_button
+                    text: "Calendar & To-do Screen"
+                    icon: 'calendar-note' #'calendar-check'
+                    on_release:
+                        screen_manager.current = "cal_todo_screen"
+                NavigationDrawerIconButton:
+                    name: "collections_screen_nav_button"
+                    id: "collections_screen_nav_button"
+                    text: "Collections & Courses Screen"
+                    icon: 'collection-image' #'cards' or 'card-multiple'
+                    on_release:
+                        screen_manager.current = "collections_screen"
+                NavigationDrawerIconButton:
+                    name: "file_manager_screen_nav_button"
+                    id: file_manager_screen_nav_button
+                    text: "File Manager Screen"
+                    icon: 'file-plus' #'file-document-multiple' or 'file-cabinet'
+                    on_release:
+                        screen_manager.current = "file_manager_screen"
+                NavigationDrawerIconButton:
+                    name: "game_screen"
+                    id: game_screen
+                    text: "Game Screen"
+                    icon: 'play-circle' #'gamepad-square-outline' or 'seesaw'
+                    on_release:
+                        screen_manager.current =  "Game_Screen"
+                NavigationDrawerIconButton:
+                    name: "grades_stats_screen_nav_button"
+                    id: grades_stats_screen_nav_button
+                    text: "Grades & Stats Screen"
+                    icon: 'book' #'graduation-cap' or 'book-open-page-variant' or 'finace' or 'notebook-outline' or 'chart-box'
+                    on_release:
+                        screen_manager.current = "Grades_Stats_Screen"
+                NavigationDrawerIconButton:
+                    name: "home_screen_nav_button"
+                        id: home_screen_nav_button
+                        text: "Home Screen"
+                        icon: 'home'
+                        on_release:
+                            screen_manager.current = "home_screen"
+                NavigationDrawerIconButton:
+                    name: "login_screen_nav_button"
+                    id: login_screen_nav_button
+                    text: "LogIn Screen"
+                    icon: 'lock-open'
+                    on_release:
+                        screen_manager.current = "LogIn_Screen"
+                NavigationDrawerIconButton:
+                    name: "msg_notif_screen_nav_button"
+                    id: msg_notif_screen_nav_button
+                    text: "Messages & Notification Screen"
+                    icon: 'inbox' #'alert-triangle' or 'message'
+                    on_release:
+                        screen_manager.current = "Msg_Notif_Screen"
+                NavigationDrawerIconButton:
+                    name: "setting_screen_nav_button"
+                    id: setting_screen_nav_button
+                    text: "Setting Screen"
+                    icon: 'settings' #'tune' or 'cogs'
+                    on_release:
+                        screen_manager.current = "Setting_Screen"
+                NavigationDrawerIconButton:
+                    name: "signup_screen_nav_button"
+                    id: signup_screen_nav_button
+                    text: "SignUp Screen"
+                    icon: 'account-box'
+                    on_release:
+                        screen_manager.current = "SignUp_Screen"
+                NavigationDrawerIconButton:
+                    name: "tools_screen_nav_button"
+                    id: tools_screen_nav_button
+                    text: "Tools Screen"
+                    icon: 'wrench' #'hammer-wrench' or 'toolbox' or 'auto-fix'
+                    on_release:
+                        screen_manager.current = "Tools_Screen"
+                NavigationDrawerIconButton:
+                    name: "trophies_screen_nav_button"
+                    id: trophies_screen_nav_button
+                    text: "Trophies Screen"
+                    icon: 'ticket-star' #'trophy' or 'star-circle' or 'playlist-star'
+                    on_release:
+                        screen_manager.current =  "Trophies_Screen"
+    MDBottomNavigation:
